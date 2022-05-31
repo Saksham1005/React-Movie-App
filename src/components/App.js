@@ -25,8 +25,8 @@ class App extends React.Component {
   }
 
   isFavourite=(movie)=>{
-    const {favourites}=this.props.store.getState();
-
+    const {movies}=this.props.store.getState();
+    const {favourites}=movies;
     const index=favourites.indexOf(movie);
     if(index!== -1){
       return true;
@@ -39,11 +39,11 @@ class App extends React.Component {
   }
 
   render(){
-    const {store}=this.props;
+    const {movies}=this.props.store.getState();
     
-    console.log(store.getState());
+    console.log(movies);
 
-    let {list,favourites,showFav}=store.getState();
+    let {list,favourites,showFav}=movies;
     
     console.log('APP component Rendered');
     
@@ -63,7 +63,7 @@ class App extends React.Component {
                   return <MovieCard
                   movie={movie}
                   key={`Movie-${index}`}
-                  dispatch={store.dispatch}
+                  dispatch={this.props.store.dispatch}
                   isFavourite={this.isFavourite(movie)}
                   />
                 })}
