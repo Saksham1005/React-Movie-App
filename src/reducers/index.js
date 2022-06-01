@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
-import {ADD_MOVIES, ADD_FAVOURITES, REMOVE_FAVOURITES, SHOW_FAVOURITES} from "../actions/index"
+import {ADD_MOVIES, ADD_FAVOURITES, REMOVE_FAVOURITES,
+    SHOW_FAVOURITES, ADD_MOVIE_TO_LIST, ADD_SEARCH_RESULT} from "../actions/index"
 
 const initial_movie_State={
     list:[],
@@ -36,15 +37,37 @@ export function movies(state=initial_movie_State, action){
             showFav:action.val
         };
     }
+    if(action.type===ADD_MOVIE_TO_LIST){
+        return {
+            ...state,
+            list: [action.movie, ...state.list],
+        };
+    }
+
     return state;
 }
 
 const initial_search_state={
-    result:{}
+    result:{},
+    showSearchResults: false
 }
 
 export function search(state=initial_search_state,action){
     console.log("Search Reducer");
+    if(action.type===ADD_MOVIE_TO_LIST){
+        return {
+            ...state,
+            showSearchResults:false
+        }
+    }
+
+    if(action.type===ADD_SEARCH_RESULT){
+        return {
+            ...state,
+            results: action.movie,
+            showSearchResults: true,
+        }
+    }
     return state;
 }
 
@@ -59,6 +82,8 @@ const initial_root_state={
 //         search:search(state.search,action)
 //     };
 // }
+
+// Redux provides us with combineReducers  which is equivalent of root_reducer
 
 export default combineReducers({
     movies,

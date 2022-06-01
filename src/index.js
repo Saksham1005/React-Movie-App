@@ -1,13 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './components/App';
 import root_reducer from './reducers';
 
-const store=createStore(root_reducer);
+// Writing a middleware
+// function logger(obj, next, action) 
+// logger(obj)(next)(action)
+
+// const logger=function({dispatch, getState}){
+//   return function(next){
+//     return function(action){
+//       // middleware code
+//       console.log("Action Type "+action.type);
+//       next(action);
+//     }
+//   }
+// }
+const logger=({dispatch, getState})=>(next)=>(action)=>{
+  if(typeof action !== 'function')
+      console.log("Action Type "+action.type);
+      next(action);
+}
+
+// const thunk = store => next => action => {
+//   if (typeof action === 'function') {
+//     return action(store.dispatch);
+//   }
+
+//   next(action);
+// };
+
+const store=createStore(root_reducer, applyMiddleware(logger,thunk));
 console.log(store);
 
 // console.log("Before State",store.getState());
