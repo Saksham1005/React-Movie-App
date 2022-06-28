@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {createStore, applyMiddleware} from 'redux';
@@ -45,14 +46,66 @@ console.log(store);
 // })
 // console.log("After State",store.getState());
 
+// export const StoreContext=createContext();
+// console.log("Store Context ", StoreContext);
+
+let comment= "we make our Provider component";
+// class Provider extends React.Component {
+//   render() {
+//     const { store } = this.props;
+//     return (
+//       <StoreContext.Provider value={store}>
+//         {this.props.children}
+//       </StoreContext.Provider>
+//     );
+//   }
+// }
+
+comment= "we make our connect function";
+// const connectedComponent = connect(callback)(App);
+// export function connect(callback) {
+//   return function (Component) {
+//     class ConnectedComponent extends React.Component {
+//       constructor(props) {
+//         super(props);
+//         this.unsubscribe = this.props.store.subscribe(() => {
+//           this.forceUpdate();
+//         });
+//       }
+
+//       componentWillUnmount() {
+//         this.unsubscribe();
+//       }
+//       render() {
+//         const { store } = this.props;
+//         const state = store.getState();
+//         const dataToBeSentAsProps = callback(state);
+
+//         return <Component dispatch={store.dispatch} {...dataToBeSentAsProps} />;
+//       }
+//     }
+
+//     class ConnectedComponentWrapper extends React.Component {
+//       render() {
+//         return (
+//           <StoreContext.Consumer>
+//             {(store) => {
+//               return <ConnectedComponent store={store} />;
+//             }}
+//           </StoreContext.Consumer>
+//         );
+//       }
+//     }
+//     return ConnectedComponentWrapper;
+//   };
+// }
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App store={store}/>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();

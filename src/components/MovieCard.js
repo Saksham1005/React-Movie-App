@@ -1,5 +1,8 @@
 import React from "react";
+import { connect } from 'react-redux';
+
 import { addFavourites,removeFavourites } from "../actions";
+// import {StoreContext} from "../index"
 
 class MovieCard extends React.Component{
     constructor(){
@@ -40,4 +43,22 @@ class MovieCard extends React.Component{
     }
 }
 
-export default MovieCard;
+// class MovieCardWrapper extends React.Component{
+//     render(){
+//         return(
+//             <StoreContext.Consumer>
+//                 {(store)=><MovieCard dispatch={store.dispatch}/>}
+//             </StoreContext.Consumer>
+//         )
+//     }
+// }
+
+function mapStateToProps(state){
+    return {
+        search:state.search
+    };
+}
+
+const connectedComponent=connect(mapStateToProps)(MovieCard);
+
+export default connectedComponent;
