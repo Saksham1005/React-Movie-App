@@ -1,3 +1,29 @@
+
+# React Movie Application
+
+Built a Movie Application that uses third-party APIs to fetch movies according to the user's search.
+
+Used HTML, CSS, Javascript, and React to build the project.
+
+
+## Tech Stack
+
+**Client:** React.js, Redux, TailwindCSS
+
+
+
+## Other Common Github Profile Sections
+👩‍💻 I'm currently working on improving my skills in Web Development and Data Structures and Algorithms.
+
+🧠 I'm currently learning React, Redux and Node.js.
+
+👯‍♀️ I'm looking to collaborate on open source projects
+
+💬 Ask me anything about Full Stack Development. 
+
+⚡️ Fun fact- Also worked on Machine Learning Based Projects.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
