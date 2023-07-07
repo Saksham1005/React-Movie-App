@@ -24,6 +24,12 @@ Used HTML, CSS, Javascript, and React to build the project.
 ⚡️ Fun fact- Also worked on Machine Learning Based Projects.
 
 
+## 🔗 Links
+[![Project Link](https://img.shields.io/badge/Project_Link-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://react-movie-application-prod.netlify.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saksham-prajapati-1923421b3/)
+[![leetcode](https://img.shields.io/badge/Leetcode-1DA1F2?style=for-the-badge&logo=leetcode&logoColor=white)](https://leetcode.com/Saksham1005/)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
